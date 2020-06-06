@@ -3,8 +3,8 @@ using System;
 using Terraria;
 using TerrariaApi.Server;
 using Tiled.OneDimension;
-using Tiled.Struct;
-using Tiled.TwoDimensions;
+//using Tiled.Struct;
+//using Tiled.TwoDimensions;
 
 namespace Tiled
 {
@@ -54,25 +54,25 @@ namespace Tiled
 
         public override void Initialize()
         {
-            string tileImplementation = null;
+            //string tileImplementation = null;
 
-            var args = Environment.GetCommandLineArgs();
-            var argumentIndex = Array.FindIndex(args, x => x.ToLower() == "-tiled");
-            if (argumentIndex > -1)
-            {
-                argumentIndex++;
+            //var args = Environment.GetCommandLineArgs();
+            //var argumentIndex = Array.FindIndex(args, x => x.ToLower() == "-tiled");
+            //if (argumentIndex > -1)
+            //{
+            //    argumentIndex++;
 
-                if (argumentIndex < args.Length)
-                {
-                    tileImplementation = args[argumentIndex];
-                }
-                else
-                {
-                    Console.WriteLine("Please provide a tile implementation after -tiled. eg -tiled 1d");
-                }
-            }
+            //    if (argumentIndex < args.Length)
+            //    {
+            //        tileImplementation = args[argumentIndex];
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine("Please provide a tile implementation after -tiled. eg -tiled 1d");
+            //    }
+            //}
 
-            var provider = ParseProviderName(tileImplementation);
+            var provider = ParseProviderName("1d");
             if (provider == null)
             {
                 provider = new OneDimensionTileProvider();
@@ -131,15 +131,15 @@ namespace Tiled
                 case "tshock":
                     return new TileProvider();
 
-                case "2d":
-                    return new TwoDimensionTileProvider();
+                //case "2d":
+                //    return new TwoDimensionTileProvider();
 
                 case "1d":
                     return new OneDimensionTileProvider();
 
-                case "struct":
-                case "structured":
-                    return new Structured1DTileProvider();
+                //case "struct":
+                //case "structured":
+                //    return new Structured1DTileProvider();
             }
             return null;
         }

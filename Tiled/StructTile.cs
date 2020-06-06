@@ -8,7 +8,7 @@ namespace Tiled
 	[StructLayout(LayoutKind.Sequential, Size = 13, Pack = 1)]
 	public struct StructTile
 	{
-		public ushort wall;
+		public byte wall;
 		public byte liquid;
 		public byte bTileHeader;
 		public byte bTileHeader2;
